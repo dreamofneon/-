@@ -1,0 +1,308 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userindex {
+
+  .flex_mult();
+  flex-direction: column;
+
+  .userinfo {
+    box-shadow: 1px 1px 8px gainsboro;
+    margin-top: 70px;
+    width: 72%;
+    height: auto;
+    background-color: white;
+    .flex_mult();
+    justify-content: left;
+    flex-direction: column;
+
+    .cover {
+      width: 100%;
+      .flex_mult();
+
+      img {
+        width: 100%;
+        height: 300px;
+      }
+    }
+
+    .body {
+
+      margin-top: -80px;
+      .flex_mult();
+
+      .left {
+        width: 300px;
+        height: 300px;
+        .flex_mult();
+
+        .img_box {
+          border: 4px solid white;
+          border-radius: 5px;
+
+          img {
+            width: 200px;
+            height: 200px;
+          }
+        }
+
+      }
+
+      .right {
+        .flex_mult();
+        justify-content: left;
+        width: 760px;
+        height: 340px;
+        .intro{
+          .flex_mult();
+          flex-direction: column;
+          align-items: flex-start;
+          h3{
+            margin-top: 10px;
+            margin-left: 5px;
+          }
+          p{
+            cursor: pointer;
+            width: 750px;
+            .flex_mult();
+            justify-content: space-between;
+            margin-top: 10px;
+            margin-left: 5px;
+            font-size: 14px;
+            span{
+              button{
+                cursor: pointer;
+                border: 1px solid #831C20;
+                width: 120px;
+                height: 40px;
+                background-color: rgba(0,0,0,0);
+                border-radius: 4px;
+              }
+
+            }
+          }
+          h1{
+            .flex_mult();
+            span{
+              margin-left: 20px;
+              font-size: 16px;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+  .outerbody {
+
+  width: 72%;
+    .flex_mult();
+    justify-content: left;
+    flex-direction: row;
+    align-items: flex-start;
+    .articleinfo {
+      box-shadow: 1px 1px 8px gainsboro;
+      margin-top: 20px;
+      width: 67%;
+      height: auto;
+      background-color: white;
+      .flex_mult();
+      align-items: flex-start;
+      flex-direction: column;
+
+      .nav {
+        .flex_mult();
+        justify-content: left;
+        flex-direction: row;
+
+        span {
+          cursor: pointer;
+          font-size: 16px;
+          margin: 20px;
+        }
+      }
+
+      .body {
+        p {
+          font-size: 20px;
+          padding: 20px;
+        }
+
+        padding: 20px;
+
+        .article_box {
+          clear: both;
+          background-color: white;
+
+          .article {
+            box-sizing: border-box;
+            width: 694px;
+            height: auto;
+            border: 1px solid #F6F6F6;
+            padding: 20px;
+          }
+        }
+        .question{
+
+          padding: 20px;
+        }
+        .collection{
+
+          padding: 20px;
+        }
+      }
+    }
+
+    .personinfo{
+
+      margin-top: 20px;
+      margin-left: 20px;
+      .flex_mult();
+      flex-direction: column;
+      .create {
+        box-shadow: 1px 1px 8px gainsboro;
+        border-bottom: 1px solid #F6F6F6;
+        background-color: white;
+        width: 342px;
+        height: 316px;
+        box-sizing: border-box;
+        .flex_mult();
+        flex-direction: column;
+        padding: 28px;
+        .create_nav {
+          width: 100%;
+          .flex_mult();
+          justify-content: space-between;
+          p{
+            width: 100%;
+            .flex_mult();
+            justify-content: space-between;
+
+
+            span{
+              .flex_mult();
+              img{
+                margin-right: 10px;
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+          .flex_mult();
+          justify-content: space-between;
+        }
+
+        .item_list {
+          margin-top: 30px;
+          .flex_mult();
+          width: 100%;
+          flex-direction: row;
+          .choose{
+            width: 25%;
+            height: 50px;
+            .flex_mult();
+            flex-direction: column;
+            img{
+              .flex_mult();
+              margin-bottom: 10px;
+              width: auto;
+              height: 20px;
+            }
+          }
+        }
+
+        .scroll{
+          .flex_mult();
+          width: 100%;
+          height: 120px;
+        };
+
+        .createe{
+          width: 100%;
+          height: 50px;
+          border: 1px solid gainsboro;
+          background-color: #fff;
+
+        }
+
+      }
+    }
+    .readtimes{
+      box-shadow: 1px 1px 8px gainsboro;
+      margin-top: 20px;
+      border-bottom: 1px solid #F6F6F6;
+      background-color: white;
+      width: 342px;
+      box-sizing: border-box;
+      .flex_mult();
+
+      align-items: flex-start;
+      flex-direction: column;
+      .nav{
+        .flex_mult();
+        justify-content: left;
+        height: 50px;
+        width: 100%;
+        border-bottom: 1px solid gainsboro;
+        p{
+          font-size: 16px;
+          padding: 28px;
+        }
+      }
+      .read_body{
+        width: 100%;
+        .flex_mult();
+        justify-content: left;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 28px;
+        h3{
+          .flex_mult();
+          margin-top: 10px;
+          span{
+            margin-right: 10px;
+            img{
+              width: 28px;
+            }
+          }
+        }
+        p{
+          margin-left: 38px;
+        }
+      }
+
+    }
+    .funsnum{
+      box-shadow: 1px 1px 8px gainsboro;
+      width: 342px;
+      border-bottom: 1px solid #F6F6F6;
+      background-color: white;
+
+      box-sizing: border-box;
+      margin-top: 20px;
+      .flex_mult();
+      flex-direction: row;
+      .funsnum_left{
+        padding: 14px;
+        width: 50%;
+        .flex_mult();
+        flex-direction: column;
+        font-size: 16px;
+
+        span{
+          margin-top: 10px;
+          font-size: 16px;
+
+        }
+      }
+      .funsnum_left:first-child{
+        border-right: 1px solid gainsboro;
+      }
+
+    }
+  }
+}

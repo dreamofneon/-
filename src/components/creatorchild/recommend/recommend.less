@@ -1,0 +1,106 @@
+.leading-page {
+  width: 100%;
+  height: pxrem(1064px);
+  background: #ffffff;
+  border: 2px solid red;
+}
+.leading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: pxrem(640px);
+  height: 100%;
+  border: 5px solid black;
+  padding-top: 0;
+  .left-container {
+    // height: pxrem(173px);
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 5px solid green;
+
+    .title {
+      // display: inline-block;
+      margin-top: pxrem(64px);
+      display: flex;
+      // flex-grow: 1;
+      font-size: pxrem(32px);
+      color: #333333;
+      font-weight: 600;
+      text-align: center;
+      line-height: pxrem(45px);
+      border: 2px solid blue;
+    }
+
+    .all {
+      display: flex;
+      margin-left: 0;
+      margin-top: 0;
+
+      .all-icon {
+        margin-top: pxrem(31px);
+        width: pxrem(6px);
+        height: pxrem(24px);
+        background: #0049ff;
+      }
+
+      .all-text {
+        margin-top: pxrem(24px);
+        margin-left: pxrem(10.5px);
+        // line-height: px2rem(22px);
+        font-size: pxrem(28px);
+        text-align: center;
+        color: #0049ff;
+        font-weight: 600;
+      }
+    }
+
+    .right-container {
+      width: 100%;
+      display: flex;
+      border: 3px solid yellow;
+      padding-top: 0;
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        height: pxrem(331px);
+        margin: pxrem(24px) 0 0 0;
+        font-size: 0;
+      }
+
+      .row-item {
+        box-sizing: border-box;
+        width: pxrem(300px);
+        height: 100%;
+        // margin-right: px2rem(24px);
+        .ritem-img {
+          width: 100%;
+          height: pxrem(200px);
+        }
+
+        .ritem-text {
+          display: inline-block;
+          width: 100%;
+          height: pxrem(131px);
+          background: #1a43aa;
+
+          .text-content {
+            width: pxrem(268px);
+            height: pxrem(99px);
+            font-size: pxrem(24px);
+            text-align: justify;
+            font-weight: 500;
+            color: #ffffff;
+            padding: pxrem(16px);
+          }
+        }
+      }
+    }
+  }
+}

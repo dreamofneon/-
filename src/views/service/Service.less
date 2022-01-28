@@ -1,0 +1,153 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service {
+
+  .flex_mult();
+  flex-direction: column;
+
+  .create {
+    box-shadow: 1px 1px 8px gainsboro;
+    border-bottom: 1px solid #F6F6F6;
+    background-color: white;
+    width: 296px;
+    height: 316px;
+    box-sizing: border-box;
+    .flex_mult();
+    flex-direction: column;
+    padding: 28px;
+    .create_nav {
+      width: 100%;
+      .flex_mult();
+      justify-content: space-between;
+      p{
+        width: 100%;
+        .flex_mult();
+        justify-content: space-between;
+
+
+        span{
+          .flex_mult();
+          img{
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+      .flex_mult();
+      justify-content: space-between;
+    }
+
+    .item_list {
+
+      margin-top: 30px;
+      .flex_mult();
+      width: 100%;
+      flex-direction: row;
+      .choose{
+        width: 25%;
+        height: 50px;
+        .flex_mult();
+        flex-direction: column;
+        img{
+          .flex_mult();
+          margin-bottom: 10px;
+          width: auto;
+          height: 20px;
+        }
+      }
+    }
+
+    .scroll{
+
+      margin-top: 10px;
+      .flex_mult();
+      width: 100%;
+      height: 120px;
+      /deep/ .el-carousel--horizontal{
+        width: 240px;
+      }
+      .carousel{
+        .flex_mult();
+        .carouselleft{
+          width: 80%;
+          .flex_mult();
+          flex-direction: column;
+          p{
+            margin-top: 10px;
+          }
+        }
+        .carouselright{
+          img{
+            width: 80px;
+          }
+        }
+      }
+    };
+
+    .createe{
+      width: 100%;
+      height: 50px;
+      border: 1px solid gainsboro;
+      background-color: #fff;
+      cursor: pointer;
+
+    }
+
+  }
+
+  .globalsidelist {
+    box-shadow: 1px 1px 8px gainsboro;
+
+    margin-top: 20px;
+    border-bottom: 1px solid #F6F6F6;
+    background-color: white;
+    width: 296px;
+    height: 175px;
+    box-sizing: border-box;
+    .flex_mult();
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .globalsidelist_item {
+      .flex_mult();
+      width: 33%;
+      flex-direction: column;
+      img{
+        .flex_mult();
+        margin-bottom: 10px;
+        width: auto;
+        height: 20px;
+      }
+    }
+  }
+
+  .navlist {
+    box-shadow: 1px 1px 8px gainsboro;
+    margin-top: 20px;
+    background-color: #fff;
+    .flex_mult();
+    flex-direction: column;
+    width: 296px;
+    border-bottom: 1px solid #F6F6F6;
+    align-items: flex-start;
+    .navlist_item{
+      height: 45px;
+
+      padding: 5px;
+      .flex_mult();
+      span{
+        margin-left: 20px;
+        img{
+          width: 20px;
+        }
+      }
+    }
+  }
+}
+
+

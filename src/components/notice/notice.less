@@ -1,0 +1,34 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noticeitem{
+  padding: 20px;
+  .flex_mult();
+  justify-content: left;
+  .item_left{
+    .flex_mult();
+    img{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+  }
+  .item_right{
+     h3{
+       cursor: pointer;
+       margin-bottom: 10px;
+       font-size: 16px;
+     }
+    p{
+      font-size: 16px;
+      span{
+        margin-left: 20px ;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,48 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.comment_box{
+  margin-bottom: 30px;
+  width: 100%;
+  .flex_mult();
+  align-items: flex-start;
+  justify-content: left;
+   .box_left{
+     .flex_mult();
+     img{
+       width: 30px;
+       height: 30px;
+     }
+   }
+  .box_right{
+    width: 100%;
+    margin-left: 10px;
+    .box_name{
+      .flex_mult();
+
+      justify-content: space-between;
+      span{
+
+        font-size: 16px;
+      }
+      height: 30px;
+    }
+    .box_body{
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .box_but{
+      margin-top: 20px;
+      font-size: 16px;
+      .flex_mult();
+      justify-content: left;
+      img{
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

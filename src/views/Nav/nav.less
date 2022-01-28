@@ -1,0 +1,246 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.nav {
+  box-shadow: 1px 1px 8px gainsboro;
+  z-index: 100;
+  width: 100%;
+  padding: 5px;
+  background-color: white;
+  border-bottom: 1px solid #F6F6F6;
+  position: fixed;
+
+  .icon {
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 140px;
+  }
+
+  .flex_mult();
+  flex-direction: row;
+  color: #831C20;
+
+  .banner {
+    .flex_mult();
+
+    .head {
+      .flex_mult();
+      flex-direction: row;
+
+      .head_item {
+        cursor: pointer;
+        margin-right: 40px;
+        font-size: 16px;
+      }
+    }
+
+    .search {
+      .flex_mult();
+      margin-left: 40px;
+      margin-right: 40px;
+      flex-direction: row;
+
+    }
+
+    .user {
+      .flex_mult();
+      flex-direction: row;
+
+      span {
+        cursor: pointer;
+      }
+
+      img {
+        object-fit: fill;
+        cursor: pointer;
+        margin-right: 40px;
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);
+  z-index: 999;
+  .flex_mult();
+
+  .div_question {
+    position: fixed;
+    padding: 40px;
+    background-color: white;
+
+    .title {
+      .flex_mult();
+
+      input {
+        height: 25px;
+        width: 100%;
+        margin: 20px 0px 20px 0px;
+      }
+    }
+
+    h4 {
+      margin-bottom: 10px;
+      font-size: 14px;
+      .flex_mult();
+      justify-content: left;
+
+      span {
+        img {
+          cursor: pointer;
+          margin-right: 40px;
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+
+    .but_close {
+      cursor: pointer;
+    }
+
+    .topic {
+      flex-direction: row;
+
+      .topic_item {
+        width: 80px;
+        margin: 10px;
+        background-color: indianred;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        height: 30px;
+      }
+
+      .topic_item:first-child {
+        margin: 10px 10px 10px 0px;
+      }
+
+      span {
+        cursor: pointer;
+        font-size: 14px;
+      }
+    }
+
+    p {
+      .flex_mult();
+      justify-content: right;
+    }
+
+  }
+}
+
+.userselect {
+  background-color: white;
+  width: 120px;
+  .flex_mult();
+  position: fixed;
+  flex-direction: column;
+  right: 15%;
+  top: 7%;
+  box-sizing: border-box;
+  padding: 15px;
+
+  p {
+
+    cursor: pointer;
+    .flex_mult();
+    width: 100%;
+    justify-content: flex-start;
+    height: 40px;
+    font-size: 14px;
+
+    img {
+      margin-right: 5px;
+      width: 20px;
+    }
+  }
+}
+
+.noticebox {
+  background-color: white;
+  width: 320px;
+  height: 320px;
+  z-index: -1;
+  box-sizing: border-box;
+  .flex_mult();
+  position: fixed;
+  flex-direction: column;
+  justify-content: flex-start;
+  right: 18%;
+  top: 7%;
+  overflow: auto;
+  overflow-x: hidden;
+
+  .notice_nav {
+    padding: 10px;
+    width: 90%;
+    .flex_mult();
+    flex-direction: row;
+    border-bottom: 1px solid gainsboro;
+    .icon_item {
+      cursor: pointer;
+      width: 33%;
+      .flex_mult();
+      flex-direction: row;
+      img {
+        width: 23px;
+      }
+    }
+  }
+
+  .notice_body{
+    width: 90%;
+    padding: 0px;
+    overflow: auto;
+      .notice_body_item{
+
+        width: 100%;
+        .flex_mult();
+        justify-content: flex-start;
+        font-size: 14px;
+        border-bottom: 1px solid gainsboro;
+        padding-bottom: 20px;
+        padding-top: 20px;
+
+      }
+  }
+
+}
+.noticenum{
+  position: fixed;
+  background-color: #831C20;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 1%;
+  right: 28%;
+  color: white;
+  cursor: pointer;
+  .flex_mult();
+
+}
+
+.messagenum{
+  position: fixed;
+  background-color: #831C20;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 1%;
+  right: 23%;
+  color: white;
+  cursor: pointer;
+  .flex_mult();
+}

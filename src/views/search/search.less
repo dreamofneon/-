@@ -1,0 +1,49 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_index{
+  .flex_mult();
+  flex-direction: row;
+  align-items: flex-start;
+  .article_box{
+
+    margin-top: 70px;
+    width: 694px;
+    height: auto;
+    .flex_mult();
+    justify-content: left;
+    flex-direction: column;
+
+    .article{
+      box-shadow: 1px 1px 8px gainsboro;
+      background-color: white;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      width: 694px;
+      height: auto;
+      border: 1px solid #F6F6F6;
+      padding: 20px;
+    }
+  }
+  .hotsearch{
+    margin-left: 20px;
+    width: 296px;
+    height: 400px;
+    margin-top: 70px;
+    box-shadow: 1px 1px 8px gainsboro;
+    background-color: white;
+    h3{
+      padding: 20px;
+    }
+    .hot_item{
+      cursor: pointer;
+      font-size: 14px;
+      height: 30px;
+      padding-left: 20px;
+    }
+  }
+
+}

@@ -1,0 +1,38 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answeritem{
+  width: 100%;
+  box-sizing: border-box;
+  padding:20px;
+  .flex_mult();
+  justify-content: left;
+  align-items: flex-start;
+  flex-direction: column;
+  h3{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    .flex_mult();
+    justify-content: space-between;
+  }
+  .answertext{
+    margin-top: 20px;
+    width: 60%;
+    font-size: 14px;
+  }
+  p{
+    width: 100%;
+    .flex_mult();
+    justify-content: space-between;
+    margin-top: 20px;
+    span{
+      color: gray;
+      font-size: 14px;
+      margin-right: 20px;
+    }
+  }
+}

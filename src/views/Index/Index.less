@@ -1,0 +1,126 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.index{
+
+  .service{
+
+  }
+  .article_box{
+    background-color: white;
+    .article_nav{
+      width: 694px;
+      border: 1px solid #F6F6F6;
+      box-sizing: border-box;
+      height: 50px;
+      .flex_mult();
+      justify-content: left;
+      span{
+        font-size: 16px;
+        margin-right: 40px;
+      }
+      span:first-child{
+        font-size: 16px;
+        margin-left: 20px;
+      }
+
+
+    }
+    .article{
+      box-sizing: border-box;
+      width: 694px;
+      height: auto;
+      border: 1px solid #F6F6F6;
+      padding: 20px;
+    }
+  }
+  .article_boxx{
+    width: 694px;
+  }
+  .mask{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .6);
+    z-index: 999;
+    .flex_mult();
+    .collect{
+      z-index: 100;
+      box-sizing: border-box;
+      position: fixed;
+      width: 536px;
+      height: 594px;
+      background-color: white;
+      top: 12%;
+      left: 500px;
+      box-shadow: 1px 1px 5px gainsboro;
+      .flex_mult();
+      flex-direction: column;
+      .collect_nav{
+        .flex_mult();
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 20px;
+        h1{
+          font-weight: 400;
+          margin-bottom: 7px;
+        }
+        p{
+          font-size: 14px;
+          color: gray;
+        }
+      }
+      .collect_body{
+        box-sizing: border-box;
+        width: 90%;
+        height: 380px;
+        overflow: auto;
+        overflow-x: hidden;
+        padding-left: 10px;
+        padding-right: 10px;
+        .flex_mult();
+        flex-direction: column;
+        justify-content: left;
+        .collect_body_item{
+          box-sizing: border-box;
+          min-height: 65px;
+          width: 100%;
+          margin-right: 50px;
+          margin-left: 50px;
+          .flex_mult();
+          justify-content: space-between;
+          border-bottom: 1px solid gainsboro;
+          span{
+            font-size: 16px;
+            button{
+              width: 120px;
+
+            }
+          }
+        }
+      }
+      .collect_but{
+        margin-top: 20px;
+        button{
+          width: 260px;
+        }
+      }
+    }
+    .close_but{
+      img{
+        cursor: pointer;
+        z-index: 100;
+        box-sizing: border-box;
+        position: fixed;
+        width: 30px;
+        top: 14%;
+        right: 430px;
+      }
+    }
+  }
+
+}

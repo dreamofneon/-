@@ -1,0 +1,91 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all {
+  .flex_mult();
+  align-items: flex-start;
+}
+
+//box-shadow: 1px 1px 8px gainsboro;
+.collection_index {
+  .flex_mult();
+  flex-direction: row;
+  width: 70%;
+  justify-content: left;
+  align-items: flex-start;
+
+  .collection_index_left {
+    box-sizing: border-box;
+    width: 80%;
+    margin-top: 70px;
+    .flex_mult();
+    flex-direction: column;
+
+    .left_nav {
+      box-sizing: border-box;
+      background-color: #fff;
+      height: 160px;
+      width: 100%;
+      .flex_mult();
+      justify-content: left;
+      padding-left: 20px;
+
+      h3 {
+        font-size: 24px;
+      }
+    }
+
+    .left_body {
+      box-sizing: border-box;
+      .flex_mult();
+      background-color: #fff;
+      width: 100%;
+      margin-top: 20px;
+      flex-direction: column;
+
+      .left_body_nav {
+        margin-top: 20px;
+        padding-left: 50px;
+        width: 100%;
+        .flex_mult();
+        font-size: 16px;
+        justify-content: left;
+      }
+
+      .left_body_all {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20px;
+
+        .left_body_item {
+          margin-top: 50px;
+
+        }
+      }
+
+
+    }
+  }
+
+  .collection_index_right {
+    background-color: #fff;
+    width: 40%;
+    margin-top: 70px;
+    margin-left: 20px;
+
+    .right_nav {
+      padding: 20px;
+    }
+    .right_body{
+      padding: 20px;
+      .right_body_item{
+        height: 50px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+}

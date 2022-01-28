@@ -1,0 +1,135 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer_index{
+
+  box-sizing: border-box;
+  width: 654px;
+  background-color: white;
+  .answer_nav{
+    width: 100%;
+    height: 50px;
+    .flex_mult();
+    flex-direction: row;
+   justify-content: left;
+    padding: 10px;
+    .answer_icon{
+      padding: 10px;
+        img{
+          width: 40px;
+          height: 40px;
+        }
+    }
+    .answer_info{
+      .flex_mult();
+      flex-direction: column;
+      align-items: flex-start;
+      h3{
+        font-size: 16px;
+      }
+      p{
+        font-size: 14px;
+      }
+    }
+  }
+  .showtitle{
+    padding: 20px;
+    cursor: pointer;
+
+  }
+  .answer_body{
+    padding: 20px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    h3{
+      font-size: 18px;
+      font-weight: 400;
+    }
+    p{
+      margin-top: 0px;
+      font-size: 14px;
+      color: gray;
+    }
+    /deep/ .answer_item{
+
+      font-size: 16px;
+      p{
+       margin-bottom: 20px;
+        margin-top: 20px;
+        img{
+          max-width: 100%;
+          display: block;
+        }
+      }
+
+    }
+  }
+  .answeraction{
+    margin-top: 10px;
+    margin-left: 15px;
+    button{
+      height: 35px;
+      box-sizing: border-box;
+      .flex_mult();
+      background-color: #E5EFFF;
+      border: none;
+      padding-left: 3px;
+      padding-right: 3px;
+      font-size: 15px;
+      color: #831C20;
+      margin:4px;
+      border-radius: 2px;
+      cursor: pointer;
+      p{
+        all:inherit;
+        letter-spacing: 2px;
+        img{
+          width: auto;
+          height: 20px;
+        }
+      }
+    }
+    .flex_mult();
+    justify-content: left;
+    .action_item{
+      cursor: pointer;
+      margin-left: 15px;
+      margin-right: 10px;
+      font-size: 14px;
+      img{
+        width: 16px;
+        margin-bottom: -1px;
+      }
+    }
+  }
+  .comment{
+    width: 100%;
+    border: 1px solid gainsboro;
+    margin-top: 10px;
+    .comment_nav{
+      padding: 20px;
+    }
+    .comment_body{
+      padding: 20px;
+      padding-top: 0px;
+    }
+    .comment_button{
+      padding: 20px;
+      width: 100%;
+      input{
+        width: 75%;
+        height: 40px;
+        border-radius: 10px;
+      }
+      span{
+        margin-left: 20px;
+        .comment_but{
+          height: 42px;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
