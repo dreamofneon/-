@@ -290,7 +290,7 @@ export default {
     },
     turntocreator(){
       this.$router.push({
-        path:'/Creator'
+        path:'/creatorindex'
       })
     }
   },

@@ -9,21 +9,26 @@
         </div>
         <div class="right">
           <div class="rightitem">
-            <h3>阅读总量</h3>
-            181
+            <h3>热度总量</h3>
+            {{this.creatordata.hot}}
           </div>
           <div class="rightitem">
-            <h3>阅读总量</h3>
-            181
+            <h3>赞同总数</h3>
+            {{this.creatordata.agreenum}}
+          </div>
+          <div class="rightitem">
+            <h3>评论总数</h3>
+            {{this.creatordata.commentnum}}
+          </div>
+          <div class="rightitem">
+            <h3>粉丝总数</h3>
+            {{this.creatordata.funs}}
           </div>
         </div>
       </div>
     </div>
     <div class="detail">
-      <h3>数据趋势</h3>
-         <div id="main" style="width: auto;height: 400px">
 
-         </div>
     </div>
   </div>
 </template>
@@ -31,23 +36,28 @@
 <script>
 
 import axios from "axios";
-
+import {getuserinfo} from "@/api/user/user";
 
 export default {
   name: '',
   props: [],
   data() {
-    return {}
+    return {
+      user:{},
+      creatordata:{}
+    }
   },
   watch: {},
   methods: {
-    echartsInit(){
-
-
+    getcreatordata(name){
+      axios.get(`http://127.0.0.1:80/getcreatordata?name=${name}`)
+        .then(res=>{
+          this.creatordata =res.data
+        })
     }
   },
   mounted() {
-    this.echartsInit()
+ this.getcreatordata(this.$store.state.username)
   },
   // http://127.0.0.1:80/
 

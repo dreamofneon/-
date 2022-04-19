@@ -144,7 +144,6 @@ export default {
         })
     },
     getuserinfo(username) {
-
       axios
         .post('http://127.0.0.1:80/queryuserinfobyname?id=' + username)
         .then(res => {
@@ -194,6 +193,7 @@ export default {
     this.getagreenum(this.userid);
     this.getstars(this.$store.state.userid)
     this.getanswersnum(this.userid)
+
   },
 
 

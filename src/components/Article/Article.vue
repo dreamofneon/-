@@ -4,33 +4,35 @@
       <h3 @click="searchques">{{ articleform.title }}</h3>
     </div>
     <div v-if="isshow" class="slot_nav">
-      <div class="answer_icon" @click="turntouserindex(articleform.arthur)" @mouseover="showuserinfo(articleform.arthur)" @mouseleave="displayuserinfo()">
-        <img :src="this.articleform.icon" alt="" >
+      <div class="answer_icon" @click="turntouserindex(articleform.arthur)"
+           @mouseover="showuserinfo(articleform.arthur)" @mouseleave="displayuserinfo()">
+        <img :src="this.articleform.icon" alt="">
       </div>
       <div class="answer_info">
-        <h3>{{this.articleform.arthur}}</h3>
-        <p>{{this.articleform.arthurinfo}}</p>
+        <h3>{{ this.articleform.arthur }}</h3>
+        <p>{{ this.articleform.arthurinfo }}</p>
       </div>
     </div>
-    <div class="userinfo" v-if="showinfo" @mouseenter="showuserinfo(articleform.arthur)" @mouseleave="displayuserinfo()">
-       <div class="userinfo_nav">
-         <div class="userinfo_nav_left">
-           <img :src="this.userinfo.icon" alt="">
-         </div>
-         <div class="userinfo_nav_right">
-           <h3>{{userinfo.name}}</h3>
-           <p>{{userinfo.intro}}</p>
-         </div>
+    <div class="userinfo" v-if="showinfo" @mouseenter="showuserinfo(articleform.arthur)"
+         @mouseleave="displayuserinfo()">
+      <div class="userinfo_nav">
+        <div class="userinfo_nav_left">
+          <img :src="this.userinfo.icon" alt="">
+        </div>
+        <div class="userinfo_nav_right">
+          <h3>{{ userinfo.name }}</h3>
+          <p>{{ userinfo.intro }}</p>
+        </div>
 
-       </div>
+      </div>
       <div class="userinfo_body">
         <div class="userinfo_body_item">
-           <p>回答</p>
-          <h3>{{userinfo.answer}}</h3>
+          <p>回答</p>
+          <h3>{{ userinfo.answer }}</h3>
         </div>
         <div class="userinfo_body_item">
           <p>关注者</p>
-          <h3>{{userinfo.funs}}</h3>
+          <h3>{{ userinfo.funs }}</h3>
         </div>
       </div>
       <div class="userinfo_button">
@@ -43,11 +45,11 @@
 
     </div>
     <div v-if="this.types=='search'" class="slot_time">
-      <p>{{this.articleform.time}}</p>
+      <p>{{ this.articleform.time }}</p>
     </div>
     <div v-if="this.types!='search'">
-      <span v-show="!isshow"><a href="#" @click="showmore(this.articleform.title)">阅读全文</a></span>
-      <span v-show="isshow"><a href="#" @click="showmore(this.articleform.title)">收起</a></span>
+      <span v-show="!isshow"><a href="#" @click="showmore(articleform.title)">阅读全文</a></span>
+      <span v-show="isshow"><a href="#" @click="showmore(articleform.title)">收起</a></span>
     </div>
 
 
@@ -61,9 +63,9 @@
         <p v-show="isdisagree"><img src="./icon/下箭头.svg" alt="">已反对</p>
       </button>
       <div class="action_item" @click="showcommen()">
-       <div v-show="!showcomment&&comment_num>0">
-         <img src="./icon/评论.svg" alt="">  {{ comment_num }}评论
-       </div>
+        <div v-show="!showcomment&&comment_num>0">
+          <img src="./icon/评论.svg" alt=""> {{ comment_num }}评论
+        </div>
         <div v-show="!showcomment&&comment_num==0">
           添加评论
         </div>
@@ -75,7 +77,7 @@
         <img src="./icon/共享.svg" alt=""> 分享
       </div>
       <div class="action_item" @click="showcollect(articleform.id)">
-       <span><img src="./icon/收藏.svg" a lt="">收藏</span>
+        <span><img src="./icon/收藏.svg" a lt="">收藏</span>
       </div>
       <div class="action_item" @click="addlike(articleform.id)">
         <div v-show="!islike">
@@ -86,18 +88,31 @@
         </div>
       </div>
       <div class="action_item">
-        ···
+        <el-popover
+          placement="top"
+          width="160"
+          v-model="visible">
+          <div style="text-align: center;cursor:pointer; margin: 0">
+            <el-button
+              plain
+              @click="open(articleform.id)">
+              举报
+            </el-button>
+          </div>
+          <el-button slot="reference">···</el-button>
+        </el-popover>
       </div>
     </div>
     <div class="comment" v-show="showcomment">
-       <div class="comment_nav">
-          <h3>共{{comment_num}}条评论</h3>
-       </div>
+      <div class="comment_nav">
+        <h3>共{{ comment_num }}条评论</h3>
+      </div>
       <div class="comment_body">
-           <comment :id="articleform.id" :ischange="ischangechild" @getcommentnum="getcomnum"></comment>
+        <comment :id="articleform.id" :ischange="ischangechild" @getcommentnum="getcomnum"></comment>
       </div>
       <div class="comment_button">
-        <input type="text" placeholder="写下你的评论...." v-model="commentinfo"><span><el-button class="comment_but" @click="addcomment()">发表回复</el-button></span>
+        <input type="text" placeholder="写下你的评论...." v-model="commentinfo"><span><el-button class="comment_but"
+                                                                                           @click="addcomment()">发表回复</el-button></span>
       </div>
     </div>
     <div class="mask" v-if="showboxcollect">
@@ -108,7 +123,7 @@
         </div>
         <div class="collect_body">
           <div v-for="(item,index) in this.collectlist" class="collect_body_item">
-            <span>{{item.name}}</span>
+            <span>{{ item.name }}</span>
             <span><el-button @click="addcollect(item.collectid)">收藏</el-button></span>
           </div>
         </div>
@@ -131,32 +146,34 @@
 import axios from "axios";
 import comment from "@/components/comment/Comment";
 import collection from "@/components/collection/collection";
+
 export default {
   name: 'index',
   props: [
-    'articleform','types'
+    'articleform', 'types'
   ],
-  components:{
-    comment,collection
+  components: {
+    comment, collection
   },
   data() {
     return {
+      visible: false,
       agree_num: 0,
       comment_num: 0,
       isshow: false,
-      isagree:false,
-      isdisagree:false,
-      showcomment:false,
-      commentinfo:'',
-      ischangechild:true,
-      islike:false,
-      type:'',
-      collectlist:[],
+      isagree: false,
+      isdisagree: false,
+      showcomment: false,
+      commentinfo: '',
+      ischangechild: true,
+      islike: false,
+      type: '',
+      collectlist: [],
       collectid: '',
       showboxcollect: false,
-      showinfo:false,
-      userinfo:{},
-      isfuns:false,
+      showinfo: false,
+      userinfo: {},
+      isfuns: false,
 
     }
   },
@@ -172,30 +189,30 @@ export default {
         })
     },
     showmore(title) {
+
       this.isshow = !this.isshow
       this.isshow ? this.$refs.text.style.height = 'auto' :
         this.$refs.text.style.height = '40px'
       this.isshow ? this.articleform.nexttext = this.articleform.answer :
         this.articleform.nexttext = this.articleform.text.substring(0, 80)
-      const user = this.$store.state.username;
       axios
-      .post(`http://127.0.0.1:80/insertmodel?name=${this.$store.state.username}&title=${title}`)
-      .then(res=>{
+        .post(`http://127.0.0.1:80/insertmodel?name=${this.$store.state.username}&title=${title}`)
+        .then(res => {
 
-      })
+        })
     },
     agree(id) {
       axios
         .get(`http://127.0.0.1:80/agree?id=${id}&userid=${this.$store.state.userid}&arthur=${this.articleform.arthur}&title=${this.articleform.title}`)
         .then(res => {
-          if(res.data=='1'){
+          if (res.data == '1') {
             this.agree_num++
             this.isagree = true
-          }else if(res.data=='0'){
+          } else if (res.data == '0') {
             this.agree_num--
             this.isagree = false
-          }else if(res.data=='-1'){
-            this.agree_num=this.agree_num+2;
+          } else if (res.data == '-1') {
+            this.agree_num = this.agree_num + 2;
             this.isagree = true
             this.isdisagree = false
           }
@@ -205,170 +222,192 @@ export default {
       axios
         .get(`http://127.0.0.1:80/disagree?id=${id}&userid=${this.$store.state.userid}`)
         .then(res => {
-          if(res.data=='1'){
-            this.isdisagree=true
+          if (res.data == '1') {
+            this.isdisagree = true
             this.agree_num--
-          }else if(res.data=='0'){
-            this.agree_num=this.agree_num-2;
+          } else if (res.data == '0') {
+            this.agree_num = this.agree_num - 2;
             this.isdisagree = true
             this.isagree = false
-          }else if(res.data=='-1'){
+          } else if (res.data == '-1') {
             this.isdisagree = false
             this.agree_num++
           }
         })
     },
-    searchques(){
+    searchques() {
       axios
-        .post('http://127.0.0.1:80/queryquestion?title='+this.articleform.title)
-        .then(res=>{
-          if(res.data==1){
+        .post('http://127.0.0.1:80/queryquestion?title=' + this.articleform.title)
+        .then(res => {
+          if (res.data == 1) {
             this.$router.push({
-              path:'/question',
-              query:{
-                title:this.articleform.title
+              path: '/question',
+              query: {
+                title: this.articleform.title
               }
-            }).catch(err=>{
+            }).catch(err => {
               console.log(666)
             })
-          }else{
+          } else {
             alert('问题不存在')
           }
 
         })
     },
-    queryisagree(id,userid){
+    queryisagree(id, userid) {
       axios
         .get(`http://127.0.0.1:80/queryisagree?id=${id}&userid=${userid}`)
         .then(res => {
-          if(res.data=='1'){
+          if (res.data == '1') {
             this.isagree = true
-          }else if(res.data=='-1'){
+          } else if (res.data == '-1') {
             this.isdisagree = true
           }
         })
     },
-    showcommen(){
-      this.showcomment=!this.showcomment
+    showcommen() {
+      this.showcomment = !this.showcomment
     },
-    addcomment(){
+    addcomment() {
       axios
-      .post(`http://127.0.0.1:80/addcomment?id=${this.articleform.id}&comment=${this.commentinfo}&user=${this.$store.state.username}&icon=${this.$store.state.icon}&arthur=${this.articleform.arthur}&title=${this.articleform.title}`)
-      .then(res=>{
-         this.ischangechild = !this.ischangechild
-         this.commentinfo = ''
-      })
+        .post(`http://127.0.0.1:80/addcomment?id=${this.articleform.id}&comment=${this.commentinfo}&user=${this.$store.state.username}&icon=${this.$store.state.icon}&arthur=${this.articleform.arthur}&title=${this.articleform.title}`)
+        .then(res => {
+          this.ischangechild = !this.ischangechild
+          this.commentinfo = ''
+        })
     },
-    getcomnum(data){
+    getcomnum(data) {
       this.comment_num = data
     },
-    showcollect(id){
+    showcollect(id) {
       this.collectid = id
       this.showboxcollect = true
       axios
         .get(`http://127.0.0.1:80/getcollection?username=${this.$store.state.username}`)
-        .then(res=>{
-          this.collectlist =res.data
+        .then(res => {
+          this.collectlist = res.data
         })
     },
-    addlike(id){
+    addlike(id) {
       axios
-      .get(`http://127.0.0.1:80/addlike?id=${id}&userid=${this.$store.state.userid}`)
-      .then(res=>{
-        if(res.data=='1'){
-          this.islike = true
-        }
-      })
+        .get(`http://127.0.0.1:80/addlike?id=${id}&userid=${this.$store.state.userid}`)
+        .then(res => {
+          if (res.data == '1') {
+            this.islike = true
+          }
+        })
     },
-    querylike(id){
+    querylike(id) {
       axios.get(`http://127.0.0.1:80/querylike?id=${id}&userid=${this.$store.state.userid}`)
-      .then(res=>{
-        if(res.data=='1'){
-          this.islike = true
-        }else{
-          this.islike =false
-        }
-      })
+        .then(res => {
+          if (res.data == '1') {
+            this.islike = true
+          } else {
+            this.islike = false
+          }
+        })
     },
     closecollect() {
       this.showboxcollect = false
     },
-    addcollect(id){
+    addcollect(id) {
       axios.get(`http://127.0.0.1:80/addcollect?answerid=${this.collectid}&collectid=${id}`)
-        .then(res=>{
-          if(res.data=='1'){
+        .then(res => {
+          if (res.data == '1') {
             alert('收藏成功')
             this.showboxcollect = false
           }
         })
     },
-    share(title){
+    share(title) {
       const sharelink = `http://localhost:8080/question?title=${title}`
-      this.$copyText(sharelink).then((e)=>{
+      this.$copyText(sharelink).then((e) => {
         alert('已将文章链接复制到粘贴板')
       })
     },
     turntouserindex(username) {
       this.$router.push({
-        path:'/Userindex',
-        query:{
-          username:username
+        path: '/Userindex',
+        query: {
+          username: username
         }
       })
     },
-    showuserinfo(username){
+    showuserinfo(username) {
       axios
-      .get(`http://127.0.0.1:80/getuserinfo?username=${username}&funsid=${this.$store.state.userid}`)
-      .then(res=>{
-        this.userinfo = res.data[0]
-        this.showinfo = true;
-        if(this.userinfo.isfuns == true){
-          this.isfuns = true
-        }
-      })
+        .get(`http://127.0.0.1:80/getuserinfo?username=${username}&funsid=${this.$store.state.userid}`)
+        .then(res => {
+          this.userinfo = res.data[0]
+          this.showinfo = true;
+          if (this.userinfo.isfuns == true) {
+            this.isfuns = true
+          }
+        })
     },
-    displayuserinfo(){
+    displayuserinfo() {
       this.showinfo = false
     },
-    befuns(userid,funsid){
+    befuns(userid, funsid) {
       axios
-      .post(`http://127.0.0.1:80/befuns?funsid=${funsid}&userid=${userid}`)
-      .then(res=>{
-           if(res.data=='1'){
-             this.isfuns = true
-             this.userinfo.funs++
-           }
-      })
+        .post(`http://127.0.0.1:80/befuns?funsid=${funsid}&userid=${userid}`)
+        .then(res => {
+          if (res.data == '1') {
+            this.isfuns = true
+            this.userinfo.funs++
+          }
+        })
 
     },
-    nobefuns(userid,funsid){
+    nobefuns(userid, funsid) {
       axios
         .post(`http://127.0.0.1:80/nobefuns?funsid=${funsid}&userid=${userid}`)
-        .then(res=>{
-          if(res.data=='1'){
+        .then(res => {
+          if (res.data == '1') {
             this.isfuns = false
             this.userinfo.funs--
           }
         })
+    },
+    open(id) {
+      console.log(666666666666666)
+      console.log(id)
+      this.$prompt('请简单阐述你选择举报的原因', '举报', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputErrorMessage: '邮箱格式不正确'
+      }).then(({ value }) => {
+        axios.post(`http://127.0.0.1:80/report?id=${id}&reason=${value}&name=${this.$store.state.username}`)
+          .then(res=>{
+            this.$message({
+              type: 'success',
+              message: `感谢您对维护平台做出的贡献，我们会尽快处理这次举报`
+            });
+          })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '出现了未知错误，请您刷新或者重新登录'
+        });
+      });
     }
+
 
   },
   mounted() {
     this.agree_num = this.articleform.agreenum;
     this.comment_num = this.articleform.commitnum;
-    this.queryisagree(this.articleform.id,this.$store.state.userid)
+    this.queryisagree(this.articleform.id, this.$store.state.userid)
     this.querylike(this.articleform.id)
     console.log(this.types)
-    if(this.types==='search'){
+    if (this.types === 'search') {
       this.isshow = true;
       this.articleform.nexttext = this.articleform.answer
-    }else if(this.types==='question'){
+    } else if (this.types === 'question') {
       this.isshow = true;
       this.articleform.nexttext = this.articleform.answer
-    }else if(this.types==='article'){
+    } else if (this.types === 'article') {
 
     }
-
 
 
   },

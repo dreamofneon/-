@@ -19,9 +19,6 @@
            <el-button @click="showedi">写回答</el-button>
           </span>
           <span>
-           <el-button>邀请回答</el-button>
-          </span>
-          <span>
             <el-button @click="agree(questionlist.name)" v-if="this.isagree=='true'">已赞同</el-button>
            <el-button @click="agree(questionlist.name)" v-if="this.isagree=='false'">点赞</el-button>
           </span>

@@ -1,0 +1,143 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.creatorindex {
+  .flex_mult();
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-start;
+
+  .middle {
+    width: 70%;
+    .flex_mult();
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+
+    .level {
+      width: 100%;
+     .progress{
+       h4{
+         margin-top: 20px;
+         font-size: 16px;
+       }
+       p{
+         font-size: 16px;
+         margin-top: 10px;
+       }
+     }
+      h3 {
+        font-size: 20px;
+        width: 100%;
+        .flex_mult();
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        p {
+          font-size: 16px;
+          font-weight: 300;
+        }
+      }
+      .entitlement{
+        .flex_mult();
+        flex-direction: row;
+        .entitlementitem{
+          .flex_mult();
+          flex-direction: column;
+          margin: 20px;
+          img{
+            width: 40px;
+          }
+        }
+      }
+    }
+    .datadetail{
+      margin-top: 40px;
+      width: 100%;
+      .flex_mult();
+      justify-content: left;
+      flex-direction: column;
+      .dataitem{
+         margin-top: 20px;
+        .flex_mult();
+        flex-direction: row;
+        .datailitem{
+          background-color: gainsboro;
+          padding: 30px;
+          margin: 10px;
+          flex-direction: column;
+          .flex_mult();
+        }
+      }
+      h3 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        width: 100%;
+        .flex_mult();
+        justify-content: space-between;
+
+        p {
+          font-size: 16px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  .last {
+    margin-left: 2%;
+    width: 28%;
+    .flex_mult();
+    justify-content: left;
+    flex-direction: column;
+
+    .announcement {
+      width: 100%;
+
+      h3 {
+        margin-bottom: 20px;
+        font-size: 18px;
+        width: 100%;
+        .flex_mult();
+        justify-content: space-between;
+        p {
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 300;
+        }
+
+      }
+    }
+    .announcement:first-child{
+      margin-bottom: 50px;
+      h4{
+        cursor: pointer;
+        margin-top: 10px;
+        padding: 10px;
+        width: 100%;
+        .flex_mult();
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.hotitem{
+  width: 100%;
+ .flex_mult();
+  justify-content: left;
+  padding-left: 20px;
+  p{
+    font-size: 14px;
+    cursor: pointer;
+    span{
+      margin-right: 20px;
+    }
+  }
+
+  height: 30px;
+
+}

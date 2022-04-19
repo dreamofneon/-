@@ -18,6 +18,12 @@ import recommend from "@/components/creatorchild/recommend/recommend";
 import commentmanage from "@/components/creatorchild/commentmanage/commentmanage";
 import contentmanage from "@/components/creatorchild/contentmanage/contentmanage";
 import contentanalyse from "@/components/creatorchild/contentanalyse/contentanalyse";
+import creatorindex from "@/components/creatorchild/creatorindex/creatorindex";
+import announce from "@/components/creatorchild/announce/announce";
+import announceindex from "@/components/creatorchild/announceindex/announceindex";
+import announceitem from "@/components/creatorchild/announceitem/announceitem";
+import managereport from "@/components/creatorchild/managereport/managereport";
+import reportdetail from "@/components/creatorchild/reportdetail/reportdetail";
 
 
 Vue.use(Router)
@@ -117,6 +123,36 @@ export default new Router({
           path:'/contentanalyse',
           name:'contentanalyse',
           component:contentanalyse
+        },
+        {
+          path:'/creatorindex',
+          name:'creatorindex',
+          component:creatorindex,
+        },
+        {
+          path:'/announce',
+          name:'announce',
+          component:announce
+        },
+        {
+          path:'/announceindex',
+          name:'announceindex',
+          component:announceindex
+        },
+        {
+          path:'/announceitem',
+          name:'announceitem',
+          component:announceitem
+        },
+        {
+          path:'/managereport',
+          name:'managereport',
+          component:managereport
+        },
+        {
+          path:'/reportdetail',
+          name:'reportdetail',
+          component:reportdetail
         }
       ]
     }
