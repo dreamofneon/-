@@ -15,10 +15,7 @@
         <span>{{item.likenum}}喜欢</span>
         </span>
         <span>
-          <el-button @click="edit()">编辑</el-button>
-          <el-button>查看评论</el-button>
-          <el-button>分享</el-button>
-          <el-button>删除</el-button>
+
         </span>
 
       </p>

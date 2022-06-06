@@ -188,6 +188,38 @@
   z-index: 999;
   .flex_mult();
 
+  .addcollect{
+    .flex_mult();
+    box-sizing: border-box;
+    flex-direction: column;
+    padding: 50px;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 1px 1px 5px gainsboro;
+    background-color: white;
+    h3{
+      margin: 20px;
+    }
+    input{
+      width: 400px;
+      padding: 5px;
+      height: 30px;
+      border-radius: 5px;
+      margin-bottom: 50px;
+    }
+    p{
+      width: 420px;
+      .flex_mult();
+      justify-content: space-between;
+      box-sizing: border-box;
+      span{
+          button{
+            width: 200px;
+          }
+      }
+    }
+  }
+
   .collect {
     z-index: 100;
     box-sizing: border-box;

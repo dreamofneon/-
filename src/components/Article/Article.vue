@@ -38,7 +38,7 @@
       <div class="userinfo_button">
         <button v-if="!this.isfuns" @click="befuns(userinfo.id,$store.state.userid)">关注</button>
         <button v-if="this.isfuns" @click="nobefuns(userinfo.id,$store.state.userid)">已关注</button>
-        <button>私信</button>
+        <button @click="turntomessage(userinfo.name)">私信</button>
       </div>
     </div>
     <div class="text" ref="text" v-html="articleform.nexttext">
@@ -48,8 +48,8 @@
       <p>{{ this.articleform.time }}</p>
     </div>
     <div v-if="this.types!='search'">
-      <span v-show="!isshow"><a href="#" @click="showmore(articleform.title)">阅读全文</a></span>
-      <span v-show="isshow"><a href="#" @click="showmore(articleform.title)">收起</a></span>
+      <span v-if="!isshow"><a href="#" @click="showmore(articleform.title)">阅读全文</a></span>
+      <span v-if="isshow"><a href="#" @click="showmore(articleform.title)">收起</a></span>
     </div>
 
 
@@ -137,6 +137,14 @@
 
     </div>
 
+    <div class="mask" v-if="showaddcollect">
+          <div class="addcollect">
+               <h3>添加新收藏夹</h3>
+            <input type="text" v-model="collectname">
+            <p><span><el-button @click="turnback()">返回</el-button></span> <span><el-button @click="createcollect(collectname)">创建</el-button></span></p>
+          </div>
+    </div>
+
 
   </div>
 </template>
@@ -157,6 +165,8 @@ export default {
   },
   data() {
     return {
+      collectname:'新收藏夹',
+      showaddcollect:false,
       visible: false,
       agree_num: 0,
       comment_num: 0,
@@ -189,7 +199,8 @@ export default {
         })
     },
     showmore(title) {
-
+      let height = document.documentElement.scrollTop
+      console.log(height)
       this.isshow = !this.isshow
       this.isshow ? this.$refs.text.style.height = 'auto' :
         this.$refs.text.style.height = '40px'
@@ -198,7 +209,7 @@ export default {
       axios
         .post(`http://127.0.0.1:80/insertmodel?name=${this.$store.state.username}&title=${title}`)
         .then(res => {
-
+          window.scrollTo(40,height)
         })
     },
     agree(id) {
@@ -369,8 +380,6 @@ export default {
         })
     },
     open(id) {
-      console.log(666666666666666)
-      console.log(id)
       this.$prompt('请简单阐述你选择举报的原因', '举报', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -389,6 +398,29 @@ export default {
           message: '出现了未知错误，请您刷新或者重新登录'
         });
       });
+    },
+    newcollect(){
+      this.showboxcollect = false;
+      this.showaddcollect = true ;
+    },
+    turnback(){
+      this.showboxcollect = false;
+      this.showaddcollect = false ;
+    },
+    createcollect(name){
+      axios.post(`http://127.0.0.1:80/createcollect?name=${name}&username=${this.$store.state.username}`)
+        .then(res=>{
+          alert('创建成功')
+          this.turnback();
+        })
+    },
+    turntomessage(name){
+      this.$router.push({
+        path:'/Message',
+        query:{
+          username:name
+        }
+      })
     }
 
 
@@ -398,7 +430,6 @@ export default {
     this.comment_num = this.articleform.commitnum;
     this.queryisagree(this.articleform.id, this.$store.state.userid)
     this.querylike(this.articleform.id)
-    console.log(this.types)
     if (this.types === 'search') {
       this.isshow = true;
       this.articleform.nexttext = this.articleform.answer

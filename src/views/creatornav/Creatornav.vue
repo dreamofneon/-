@@ -2,7 +2,7 @@
 <div class="creatornav">
    <p>
      <span @click="goindex">霓 虹</span>
-     <span><img :src="this.$store.state.icon" alt=""></span>
+     <span><img :src="this.$store.state.icon" alt="" @click="goindex"></span>
    </p>
 </div>
 </template>

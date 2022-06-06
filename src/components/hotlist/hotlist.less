@@ -1,0 +1,32 @@
+.flex_mult() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hotitem{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  .left{
+    padding: 20px;
+    font-size: 16px;
+    color: #831C20;
+    .flex_mult();
+
+
+  }
+  .right{
+    display: flex;
+    flex-direction: column;
+    h3{
+      cursor: pointer;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    p{
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+  }
+}

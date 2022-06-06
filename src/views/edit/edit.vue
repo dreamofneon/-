@@ -73,7 +73,7 @@ export default {
       introshow: false,
       idshow:false,
       telshow:false,
-      imageUrl:''
+      imageUrl:'./icon/img_1.png'
     }
   },
   watch:{

@@ -24,6 +24,8 @@ import announceindex from "@/components/creatorchild/announceindex/announceindex
 import announceitem from "@/components/creatorchild/announceitem/announceitem";
 import managereport from "@/components/creatorchild/managereport/managereport";
 import reportdetail from "@/components/creatorchild/reportdetail/reportdetail";
+import simple from "@/simple"
+import help from "@/views/help/help";
 
 
 Vue.use(Router)
@@ -155,6 +157,16 @@ export default new Router({
           component:reportdetail
         }
       ]
+    },
+    {
+      path:'/help',
+      name:'help',
+      component:help
+    },
+    {
+      path:'/simple',
+      name:'simple',
+      component:simple
     }
 
 

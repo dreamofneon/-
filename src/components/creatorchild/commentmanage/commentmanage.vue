@@ -13,9 +13,7 @@
       <div v-for="item in commentlist" class="right_item">
         <p><span><img :src="item.icon" alt=""> {{item.user}} 评论了你</span> <span>{{item.date}}</span></p>
         <div class="commentindex">{{item.comment}}</div>
-        <div class="commentindex">
-          赞
-        </div>
+
       </div>
     </div>
   </div>

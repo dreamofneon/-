@@ -53,6 +53,7 @@
         height: 50px;
         .flex_mult();
         flex-direction: column;
+        cursor: pointer;
         img{
           .flex_mult();
           margin-bottom: 10px;
@@ -110,6 +111,8 @@
     height: 175px;
     box-sizing: border-box;
     .flex_mult();
+    align-items: flex-start;
+    paddingqw: 20px;
     flex-direction: row;
     flex-wrap: wrap;
 
@@ -136,6 +139,7 @@
     border-bottom: 1px solid #F6F6F6;
     align-items: flex-start;
     .navlist_item{
+      cursor: pointer;
       height: 45px;
 
       padding: 5px;
@@ -151,3 +155,34 @@
 }
 
 
+.announcement {
+  .flex_mult();
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+
+  h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    width: 100%;
+    .flex_mult();
+    justify-content: space-between;
+    p {
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+  }
+}
+.announcement:first-child{
+  padding: 20px;
+  padding-top: 20px;
+  h4{
+    cursor: pointer;
+    width: 100%;
+    .flex_mult();
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+}

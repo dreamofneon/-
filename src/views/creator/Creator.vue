@@ -69,11 +69,11 @@ export default {
       ],
       managenavs: [{
         path: '/contentmanage',
-        name: '内容管理'
+        name: '内容查看'
       },
         {
           path: '/commentmanage',
-          name: '评论管理'
+          name: '评论查看'
         },
         {
           path: '/managereport',

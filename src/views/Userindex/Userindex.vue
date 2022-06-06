@@ -49,7 +49,9 @@
               <collectionitem :username='userinfo.name'></collectionitem>
             </div>
             <div class="notice" v-if="nav==='关注'">
-              <notice :username="userinfo.id"></notice>
+              <p><span @click="noticeuser">关注用户</span>  <span @click="noticequestion">关注问题</span></p>
+              <notice :username="userinfo.id" v-if="showuser"></notice>
+              <noticequestion :username="userinfo.name" v-if="!showuser"></noticequestion>
             </div>
           </div>
         </div>
@@ -63,7 +65,7 @@
             </div>
             <div class="scroll">
               <p>
-                滚动数据
+                创作中心可以帮助您更好的管理内容，通过创作中心您可以精准快速的查找到您所感兴趣的相关话题进行回答，感谢您为社区做出的贡献。
               </p>
             </div>
             <button class="createe">进入创作中心</button>
@@ -105,18 +107,19 @@ import Nav from "@/views/Nav/Nav";
 import Article from "@/components/Article/Article";
 import questionitem from "@/components/questionitem/questionitem";
 import collectionitem from "@/components/collectionitem/collectionitem";
+import noticequestion from "@/components/noticequestion/noticequestion";
 import notice from "@/components/notice/notice";
 
 export default {
   name: 'Userindex',
   components: {
-    Nav, Article, questionitem, collectionitem, notice
+    Nav, Article, questionitem, collectionitem, notice,noticequestion
   },
   data() {
     return {
       article_array: [],
       navlist: [
-        '动态', '回答', '视频', '提问', '文章', '收藏', '关注'
+        '回答', '提问','收藏', '关注'
       ],
       userinfo: {},
       level: 4,
@@ -126,9 +129,16 @@ export default {
       answersnum: 0,
       showmore: false,
       nav: '回答',
+      showuser:true,
     }
   },
   methods: {
+    noticeuser(){
+      this.showuser = true
+    },
+    noticequestion(){
+     this.showuser = false
+    },
     getArtList() {
       axios
         .get('http://127.0.0.1:80/getuserartlist?arthur=' + this.$store.state.username)
@@ -187,6 +197,9 @@ export default {
 
   },
   mounted() {
+    if(this.$route.query.nav){
+      this.nav = this.$route.query.nav
+    }
     this.userid = this.$route.query.username;
     this.getArtList();
     this.getuserinfo(this.userid);

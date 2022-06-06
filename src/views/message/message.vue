@@ -6,16 +6,18 @@
           <div class="box_left">
                <div class="left_nav">
                  <div class="nav_input">
-                   <el-input>搜索联系人</el-input>
+                   <el-input v-model="searchname">搜索联系人
+                     <el-button slot="append" icon="el-icon-search" @click="searchuser(searchname)"></el-button>
+                   </el-input>
                  </div>
 
-                 <el-collapse accordion>
-                   <el-collapse-item>
+                 <el-collapse accordion  v-model="chatlist">
+                   <el-collapse-item name="1">
                      <template slot="title" >
                        最近联系
                      </template>
                      <div class="left_all">
-                       <div class="left_item" v-for="item in this.chatlist" @click="changetarget(item.name)">
+                       <div class="left_item" v-for="item in this.chatlist" @click="changetarget(item.name)" v-if="item!='1'">
                          <img :src="item.icon" alt="">
                          <div>
                            <h3>{{item.name}}</h3>
@@ -69,7 +71,6 @@ import Nav from "@/views/Nav/Nav";
 let ws = new WebSocket('ws://127.0.0.1:3000')
 
 ws.onopen=(username)=>{
-  console.log('卧槽我在拔刀')
      ws.send(
        JSON.stringify({
          type:'setName',
@@ -101,6 +102,7 @@ export default {
   },
   data() {
     return {
+      searchname:'',
       messagelist:[1,1,1,1],
       messagebox:[
       ],
@@ -144,10 +146,10 @@ export default {
       .get(`http://127.0.0.1:80/getchatlist?userid=${userid}`)
       .then(res=>{
         this.chatlist = res.data
+        this.chatlist.push('1')
       })
     },
     changetarget(username){
-
       this.targetname = username
       this.changebox()
     },
@@ -165,14 +167,31 @@ export default {
         .then(res=>{
 
         })
+    },
+    searchuser(name){
+        axios.post(`http://127.0.0.1:80/addchatlist?name=${name}`)
+          .then(res=>{
+            if(res.data){
+              console.log(res)
+              this.chatlist.push(res.data)
+            }else{
+              alert('抱歉，查无此人，您搜索的这个用户并不存在。')
+            }
+          })
     }
 
   },
   mounted() {
      this.enter()
-    this.getchatlist(this.$store.state.userid)
+    this.getchatlist(this.$store.state.username)
     this.username = this.$store.state.username;
     window.getmessage = this.sendnext;
+    console.log(this.$route.query)
+    if(this.$route.query.username){
+        setTimeout(()=>{
+          this.searchuser(this.$route.query.username)
+        },50)
+      }
   },
   destroyed() {
 

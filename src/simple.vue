@@ -1,8 +1,7 @@
 <template>
   <div class="index">
-
+  <h3>{{data}}</h3>
   </div>
-
 </template>
 
 <script>
@@ -11,33 +10,25 @@ import axios from "axios";
 
 
 export default {
-  name: 'Userindex',
+  name: 'simple',
   components: {
- 
+
   },
   data() {
     return {
-
+        data: ''
     }
   },
   methods: {
-    getArtList() {
-      axios
-        .get('http://127.0.0.1:80/getartlist')
-        .then(res => {
-          console.log(res)
-          for (let item of res.data) {
-            item.nexttext = item.text.substring(0, 80)
-          }
-          this.article_array = res.data
-
-        })
-    },
-
+        getdata(){
+          setTimeout(()=>{
+            this.data = '666'
+          },1000)
+        }
   },
-  mounted() {
-
-  },
+  mounted(){
+    this.getdata()
+  }
 
 
 }

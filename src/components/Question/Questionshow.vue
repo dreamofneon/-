@@ -40,9 +40,7 @@
         <h3>
           作者介绍 <span><input type="text" v-model="$store.state.intro"></span>
         </h3>
-        <h3>
-          评论权限
-        </h3>
+
       </div>
       <div class="editor_footer">
         <button @click="addanswer">发布回答</button>

@@ -11,8 +11,8 @@
     </div>
     <p class="dealwith">
       <span>处理操作</span>
-      <span><el-button @click="deleteanswer(this.answer.id,this.answer.arthur,name,reason)">删除回答</el-button></span>
-      <span><el-button @click="deleteuser(answer.arthur)">删除用户</el-button></span>
+      <span><el-button @click="deleteanswer(answer.id,answer.arthur,name,reason)">删除回答</el-button></span>
+      <span><el-button @click="deleteuser(answer.id,answer.arthur,name,reason)">删除用户</el-button></span>
       <span><el-button
         @click="finish(answer.id,this.$route.query.name,this.$route.query.reason)">处理完毕</el-button></span>
     </p>
@@ -46,15 +46,28 @@ export default {
       axios.post(` http://127.0.0.1:80/deleteanswer?id=${id}&arthur=${arthur}&name=${name}&reason=${reason}`)
         .then(res => {
           alert('删除成功')
-          this.$router.go(-1)
+          this.$router.go(0)
         })
-    }
+    },
+    deleteuser(id, arthur, name, reason) {
+      axios.post(` http://127.0.0.1:80/deleteuser?id=${id}&arthur=${arthur}&name=${name}&reason=${reason}`)
+        .then(res => {
+          alert('删除成功')
+          this.$router.go(0)
+        })
+    },
+    finish(id, arthur, name, reason) {
+      axios.post(` http://127.0.0.1:80/finish?id=${id}&arthur=${arthur}&name=${name}&reason=${reason}`)
+        .then(res => {
+          alert('处理完毕')
+          this.$router.go(0)
+        })
+    },
   },
   mounted() {
-
     this.getanswer(this.$route.query.id)
-    // this.name = this.$route.query.name;
-    // this.reason = this.$route.query.reason
+    this.name = this.$route.query.name;
+    this.reason = this.$route.query.reason
   },
   // http://127.0.0.1:80/
 

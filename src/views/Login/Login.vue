@@ -24,24 +24,23 @@
       </div>
       <div class="body_index" v-show="!istel">
         <div class="body_index_input">
-          <el-input placeholder="手机号或账号" v-model="id" class="el_input">
+          <el-input placeholder="账号" v-model="id" class="el_input">
 
           </el-input>
         </div>
 
         <div class="body_index_input">
-          <el-input placeholder="密码" v-model="pwd" class="el_input">
+          <el-input placeholder="密码" v-model="pwd" class="el_input"  show-password>
 
           </el-input>
         </div>
 
-        <p>忘记密码？</p>
       </div>
       <div @click=login()>
         <el-button class="btn">登陆</el-button>
       </div>
       <div>
-        <p style="margin-left: 32px;margin-right: 32px">未注册手机验证后自动登录，注册即代表同意我们所有的霸王条款</p>
+        <p style="margin-left: 32px;margin-right: 32px">未注册手机验证后自动登录，注册即代表同意我们所有的条款</p>
       </div>
       <el-button class="btn" @click="showpageregist">还未注册？点击注册</el-button>
 
@@ -81,17 +80,7 @@ export default {
     }
   },
   methods: {
-    getHeadItems() {
-      axios
-        .get('http://127.0.0.1:80/getHeadItems')
-        .then(res => {
-          console.log(res)
-          this.head_item = []
-          for (let item of res.data) {
-            this.head_item.push(item.name)
-          }
-        })
-    },
+
     login() {
       axios
         .get('http://127.0.0.1:80/login?name=' + this.id + '&pwd=' + this.pwd)

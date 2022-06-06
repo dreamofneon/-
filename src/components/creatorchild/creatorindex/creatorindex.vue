@@ -3,7 +3,7 @@
   <div class="creatorindex">
     <div class="middle">
       <div class="level">
-        <h3>创作等级 <p>查看等级说明></p></h3>
+        <h3>创作等级 </h3>
         <div class="progress">
           <el-progress :percentage="this.user.exp/(this.user.level*50)"></el-progress>
           <h4>您当前的等级为{{this.user.level}}，还差{{this.user.level*5000-this.user.exp}}分则可升级为{{this.user.level+1}}</h4>
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="datadetail">
-        <h3>数据总览 <p>查看更多数据></p></h3>
+        <h3>数据总览 </h3>
         <div class="dataitem">
           <div class="datailitem">
             <h3>热度总数</h3>
